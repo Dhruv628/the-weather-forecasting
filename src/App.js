@@ -24,6 +24,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
+
   const searchChangeHandler = async (enteredData) => {
     const [latitude, longitude] = enteredData.value.split(' ');
 
@@ -34,6 +35,7 @@ function App() {
     let dt_now = Math.floor(date.getTime() / 1000);
 
     try {
+      console.log(date)
       const [todayWeatherResponse, weekForecastResponse] =
         await fetchWeatherData(latitude, longitude);
       const all_today_forecasts_list = getTodayForecastWeather(
@@ -190,7 +192,8 @@ function App() {
               src={Logo}
             />
 
-            <UTCDatetime />
+         <UTCDatetime/>
+    
             <Link
               href="https://github.com/Amin-Awinti"
               target="_blank"
